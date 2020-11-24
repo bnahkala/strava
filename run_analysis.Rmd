@@ -66,6 +66,10 @@ runs.year <- ggplot(data.runs.bn, aes(x=Distance.mi))+
     x="Distance (mi)"
   )
 runs.year
+
+png(filename = "Histograms.png", width = 90, height=254, units="mm", res=300)
+runs.year
+dev.off()
 ```
 
 ```{r, fig.width=5, fig.height=10}
@@ -103,7 +107,7 @@ run.sum.year
 
 
 ```{r}
-ggplot(run.sum.year, aes(x=yday(Lube), y=Dist_cumulative, color=year(Lube), group=year(Lube)))+
+cumul.plot <- ggplot(run.sum.year, aes(x=yday(Lube), y=Dist_cumulative, color=year(Lube), group=year(Lube)))+
   geom_line(size=1)+
   geom_hline(yintercept=1000, color="red", size=1.25, alpha=0.5)+
   theme_bw()+
@@ -112,16 +116,29 @@ ggplot(run.sum.year, aes(x=yday(Lube), y=Dist_cumulative, color=year(Lube), grou
     y="Cumulative Distance Ran (mi)",
     color="Year"
   )
+
+cumul.plot
+
+png(filename = "Cumulative.png", width = 135, height=90, units="mm", res=300)
+cumul.plot
+dev.off()
 ```
 
 ```{r}
-ggplot(run.sum.year, aes(x=Wday, y=Distance.mi, group=Wday))+
-  geom_boxplot()+
+w.day.plot <- ggplot(run.sum.year, aes(x=Wday, y=Distance.mi, group=Wday))+
+  geom_jitter(color="darkgray", width = 0.2)+
+  geom_boxplot(alpha=0.25, outlier.size = 0, color="navyblue")+
   theme_bw()+
   labs(
     x="Day of Week (Start Monday)",
     y="Distance (mi)"
   )
+
+w.day.plot
+
+png(filename = "Weekday.png", width = 135, height=90, units="mm", res=300)
+w.day.plot
+dev.off()
 ```
 
 

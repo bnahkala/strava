@@ -1,4 +1,4 @@
-"0","ggplot(run.sum.year, aes(x=yday(Lube), y=Dist_cumulative, color=year(Lube), group=year(Lube)))+"
+"0","cumul.plot <- ggplot(run.sum.year, aes(x=yday(Lube), y=Dist_cumulative, color=year(Lube), group=year(Lube)))+"
 "0","  geom_line(size=1)+"
 "0","  geom_hline(yintercept=1000, color=""red"", size=1.25, alpha=0.5)+"
 "0","  theme_bw()+"
@@ -7,3 +7,5 @@
 "0","    y=""Cumulative Distance Ran (mi)"","
 "0","    color=""Year"""
 "0","  )"
+"0",""
+"0","cumul.plot"

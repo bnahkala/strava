@@ -1,7 +1,0 @@
-"0","ggplot(run.sum.year, aes(x=Wday, y=Distance.mi, group=Wday))+"
-"0","  geom_boxplot()+"
-"0","  theme_bw()+"
-"0","  labs("
-"0","    x=""Day of Week (Start Monday)"","
-"0","    y=""Distance (mi)"""
-"0","  )"
