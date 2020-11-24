@@ -1,3 +1,0 @@
-"0","runs.scatter <- ggplot(data.runs.bn, aes(x = Distance.mi, y = Moving.Time))+"
-"0","  geom_point()"
-"0","runs.scatter"

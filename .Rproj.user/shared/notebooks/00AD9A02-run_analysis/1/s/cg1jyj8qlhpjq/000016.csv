@@ -1,0 +1,4 @@
+"0","run.sum <- data.runs.bn %>%"
+"0","  dplyr::group_by(Year, Month) %>%"
+"0","  dplyr::summarize(mean = mean(Distance.mi), med = median(Distance.mi))"
+"0","run.sum"
