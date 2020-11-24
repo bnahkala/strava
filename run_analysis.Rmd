@@ -85,22 +85,62 @@ rides.year
 
 
 ```{r}
-run.sum <- data.runs.bn %>%
+run.sum.month <- data.runs.bn %>%
   dplyr::group_by(Year, Month) %>%
-  dplyr::summarize(mean = mean(Distance.mi), med = median(Distance.mi))
-run.sum
+  dplyr::summarize(mean = mean(Distance.mi), med = median(Distance.mi), sum = sum(Distance.mi), count=n(),
+                   max=max(Distance.mi), min=min(Distance.mi))
+  
+run.sum.month
 ```
 
 ```{r}
-ggplot(run.sum, aes(x=Month, y=mean, color=Year))+
-  geom_point()
+run.sum.year <- data.runs.bn %>%
+  dplyr::group_by(year(Lube)) %>%
+  dplyr::mutate(Dist_cumulative = cumsum(Distance.mi), Wday = wday(Lube, week_start = 1)) %>%
+  filter(Activity.ID != 3404676244)
+run.sum.year
+```
+
+
+```{r}
+ggplot(run.sum.year, aes(x=yday(Lube), y=Dist_cumulative, color=year(Lube), group=year(Lube)))+
+  geom_line(size=1)+
+  geom_hline(yintercept=1000, color="red", size=1.25, alpha=0.5)+
+  theme_bw()+
+  labs(
+    x="Day of Year",
+    y="Cumulative Distance Ran (mi)",
+    color="Year"
+  )
+```
+
+```{r}
+ggplot(run.sum.year, aes(x=Wday, y=Distance.mi, group=Wday))+
+  geom_boxplot()+
+  theme_bw()+
+  labs(
+    x="Day of Week (Start Monday)",
+    y="Distance (mi)"
+  )
+```
+
+
+```{r}
+ggplot(run.sum, aes(x=as.factor(Month), y=mean, color=Year))+
+  # geom_point()+
+  theme_bw()+
+  geom_line(aes(group=Year), size=1)+
+  labs(
+    x="Month",
+    y="Mean Run Length (mi)"
+  )
 ```
 
 
 ```{r}
 runs.month <- ggplot(data.runs.bn, aes(x=yday(Date), y=Distance.mi, color=Year))+
   # geom_point()+
-  geom_line()
+  geom_line(aes(group=Year))
 runs.month
 ```
 

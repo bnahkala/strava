@@ -1,0 +1,32 @@
+{
+    "id": "2A11EE42",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1606233893010.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "run.sum.month",
+        "caption": "run.sum.month",
+        "totalObservations": 656,
+        "displayedObservations": 656,
+        "variables": 5,
+        "cacheKey": "3FAC8C5A",
+        "object": "run.sum.month",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=run.sum.month&cache_key=3FAC8C5A&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2986583009549101177,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1606233893010,
+    "read_only": false,
+    "read_only_alternatives": []
+}

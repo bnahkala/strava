@@ -1,0 +1,8 @@
+"0","ggplot(run.sum, aes(x=as.factor(Month), y=mean, color=Year))+"
+"0","  # geom_point()+"
+"0","  theme_bw()+"
+"0","  geom_line(aes(group=Year), size=1)+"
+"0","  labs("
+"0","    x=""Month"","
+"0","    y=""Mean Run Length (mi)"""
+"0","  )"

@@ -3,7 +3,7 @@
     "path": "C:/github/strava/run_analysis.Rmd",
     "project_path": "run_analysis.Rmd",
     "type": "r_markdown",
-    "hash": "1971672529",
+    "hash": "2533082996",
     "contents": "",
     "dirty": false,
     "created": 1606170497799.0,
@@ -11,16 +11,16 @@
     "relative_order": 2,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "111,11",
-        "scrollLine": "105",
-        "last_setup_crc32": "A6B1A80A844dd9e6"
+        "cursorPosition": "119,13",
+        "scrollLine": "115",
+        "last_setup_crc32": "C5B9717F844dd9e6"
     },
     "folds": "",
-    "lastKnownWriteTime": 1606188491,
+    "lastKnownWriteTime": 1606236254,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1606188491642,
+    "last_content_update": 1606236254226,
     "read_only": false,
     "read_only_alternatives": []
 }

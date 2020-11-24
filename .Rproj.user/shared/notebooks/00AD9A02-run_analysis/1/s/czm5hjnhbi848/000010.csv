@@ -1,2 +1,0 @@
-"0","ggplot(run.sum, aes(x=Month, y=mean, color=Year))+"
-"0","  geom_point()"
