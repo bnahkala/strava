@@ -1,5 +1,6 @@
 "0","ggplot(data.runs.bn, aes(x=Elev.Diff*3.2808))+"
-"0","  geom_histogram()+"
+"0","  geom_histogram(alpha=0.5)+"
+"0","  theme_bw()+"
 "0","  labs("
 "0","    x=""Elevation Difference (ft)"","
 "0","    y=""Runs"""

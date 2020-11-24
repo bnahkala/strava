@@ -18,6 +18,8 @@ library(lubridate)
 library(plyr)
 ```
 
+# DATA IMPORT, SUMMARIES
+
 ```{r}
 data.strava.bn <- as.data.frame(read.csv("activities_20200516.csv", header=TRUE, sep=","))
 data.strava.bn$Distance.mi <- data.strava.bn$Distance / 1.60934
@@ -40,10 +42,38 @@ data.rides.bn <- data.strava.bn %>%
 # data.runs <- rbind(data.runs.bn, data.runs.jr)
 ```
 
+```{r}
+run.sum.year <- data.runs.bn %>%
+  dplyr::group_by(year(Lube)) %>%
+  dplyr::mutate(Dist_cumulative = cumsum(Distance.mi), Wday = wday(Lube, week_start = 1)) %>%
+  filter(Activity.ID != 3404676244)
+
+run.sum.year <- run.sum.year %>%
+  ungroup() %>%
+  dplyr::mutate(All.cumul = cumsum(Distance.mi))
+
+run.sum.year
+```
+
+```{r}
+run.sum.month <- data.runs.bn %>%
+  dplyr::group_by(Year, Month) %>%
+  dplyr::summarize(mean = mean(Distance.mi), med = median(Distance.mi), sum = sum(Distance.mi), count=n(),
+                   max=max(Distance.mi), min=min(Distance.mi))
+  
+run.sum.month
+```
+
+# DATA VISUALIZATION
 
 ```{r}
 runs.hist <- ggplot(data.runs.bn, aes(x=Distance.mi))+
-  geom_histogram(binwidth = 1, alpha=0.5, position="identity")
+  geom_histogram(binwidth = 1, alpha=0.5, position="identity")+
+  theme_bw()+
+  labs(
+    x="Distance (mi)",
+    y="Count"
+  )
 runs.hist
 ```
 
@@ -72,7 +102,7 @@ runs.year
 dev.off()
 ```
 
-```{r, fig.width=5, fig.height=10}
+```{r, fig.width=3.33, fig.height=10}
 rides.year <- ggplot(data.rides.bn, aes(x=Distance.mi))+
   geom_histogram(binwidth = 1, alpha=0.5, position="identity")+
   theme_bw()+
@@ -85,24 +115,6 @@ rides.year <- ggplot(data.rides.bn, aes(x=Distance.mi))+
     x="Distance (mi)"
   )
 rides.year
-```
-
-
-```{r}
-run.sum.month <- data.runs.bn %>%
-  dplyr::group_by(Year, Month) %>%
-  dplyr::summarize(mean = mean(Distance.mi), med = median(Distance.mi), sum = sum(Distance.mi), count=n(),
-                   max=max(Distance.mi), min=min(Distance.mi))
-  
-run.sum.month
-```
-
-```{r}
-run.sum.year <- data.runs.bn %>%
-  dplyr::group_by(year(Lube)) %>%
-  dplyr::mutate(Dist_cumulative = cumsum(Distance.mi), Wday = wday(Lube, week_start = 1)) %>%
-  filter(Activity.ID != 3404676244)
-run.sum.year
 ```
 
 
@@ -163,7 +175,8 @@ runs.month
 
 ```{r}
 ggplot(data.runs.bn, aes(x=Elev.Diff*3.2808))+
-  geom_histogram()+
+  geom_histogram(alpha=0.5)+
+  theme_bw()+
   labs(
     x="Elevation Difference (ft)",
     y="Runs"
@@ -171,6 +184,15 @@ ggplot(data.runs.bn, aes(x=Elev.Diff*3.2808))+
 ```
 
 
+```{r}
+ggplot(run.sum.year, aes(x=Lube, y=All.cumul))+
+  geom_line(size=1)+
+  theme_bw()+
+  labs(
+    x="Date",
+    y="Cumulative Distance"
+  )
+```
 
 
 

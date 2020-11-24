@@ -1,5 +1,0 @@
-"0","run.sum.year <- data.runs.bn %>%"
-"0","  dplyr::group_by(year(Lube)) %>%"
-"0","  dplyr::mutate(Dist_cumulative = cumsum(Distance.mi), Wday = wday(Lube, week_start = 1)) %>%"
-"0","  filter(Activity.ID != 3404676244)"
-"0","run.sum.year"
