@@ -16,4 +16,6 @@
 "0","data.rides.bn <- data.strava.bn %>%"
 "0","  filter(Activity.Type == ""Ride"")"
 "0",""
+"0",""
+"0",""
 "0","# data.runs <- rbind(data.runs.bn, data.runs.jr)"

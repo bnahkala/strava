@@ -39,6 +39,8 @@ data.runs.bn <- data.strava.bn %>%
 data.rides.bn <- data.strava.bn %>%
   filter(Activity.Type == "Ride")
 
+
+
 # data.runs <- rbind(data.runs.bn, data.runs.jr)
 ```
 
@@ -53,6 +55,9 @@ run.sum.year <- run.sum.year %>%
   dplyr::mutate(All.cumul = cumsum(Distance.mi))
 
 run.sum.year
+
+data.runs.2020 <- run.sum.year %>%
+  filter(year(Lube) == 2020)
 ```
 
 ```{r}
@@ -194,6 +199,13 @@ ggplot(run.sum.year, aes(x=Lube, y=All.cumul))+
   )
 ```
 
+# 2020 Linear Fit
+
+```{r}
+cor(yday(data.runs.2020$Lube), data.runs.2020$Dist_cumulative)^2
+fit.runs <- lm(Dist_cumulative ~ yday(data.runs.2020$Lube), data.runs.2020)
+summary(fit.runs)
+```
 
 
 
