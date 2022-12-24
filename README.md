@@ -1,4 +1,4 @@
-# Analyzing Strava Data: 2015 - 04/2021
+# Analyzing Strava Data: 2015 - 12/2022
  *analyzing runs like a nerd*
  
  ## Cumulative Distance by Year
