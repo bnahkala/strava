@@ -1,4 +1,4 @@
-"0","data.strava.bn <- as.data.frame(read.csv(""activities_20210412.csv"", header=TRUE, sep="",""))"
+"0","data.strava.bn <- as.data.frame(read.csv(""activities_20221224.csv"", header=TRUE, sep="",""))"
 "0","data.strava.bn$Distance.mi <- data.strava.bn$Distance / 1.60934"
 "0","data.strava.bn$Elev.Gain.ft <- data.strava.bn$Elevation.Gain * 3.2808"
 "0","data.strava.bn$Date <- mdy(paste(data.strava.bn$Month, data.strava.bn$Day, data.strava.bn$Year, sep = ""/""))"
