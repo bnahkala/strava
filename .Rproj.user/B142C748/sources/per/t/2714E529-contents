@@ -21,7 +21,7 @@ library(plyr)
 # DATA IMPORT, SUMMARIES
 
 ```{r}
-data.strava.bn <- as.data.frame(read.csv("activities_20221224.csv", header=TRUE, sep=","))
+data.strava.bn <- as.data.frame(read.csv("activities_20230429.csv", header=TRUE, sep=","))
 data.strava.bn$Distance.mi <- data.strava.bn$Distance / 1.60934
 data.strava.bn$Elev.Gain.ft <- data.strava.bn$Elevation.Gain * 3.2808
 data.strava.bn$Date <- mdy(paste(data.strava.bn$Month, data.strava.bn$Day, data.strava.bn$Year, sep = "/"))
