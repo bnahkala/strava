@@ -1,0 +1,32 @@
+{
+    "id": "9CA6F0F4",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1697596347486.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "run.sum.year",
+        "caption": "run.sum.year",
+        "totalObservations": 940,
+        "displayedObservations": 940,
+        "variables": 100,
+        "cacheKey": "C032B173",
+        "object": "run.sum.year",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=run.sum.year&cache_key=C032B173&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 7308619195232122478,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1697596347486,
+    "read_only": false,
+    "read_only_alternatives": []
+}
